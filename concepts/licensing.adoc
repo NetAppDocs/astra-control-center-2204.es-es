@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: concepts/licensing.html 
+keywords: license, licensing 
+summary: Descubra cómo las acciones que puede realizar con Astra Control Center difieren en función del estado de la licencia y cómo afecta el uso que haga de Astra Control Center al consumo de licencias. 
+---
+= Licencia
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+[role="lead"]
+Astra Control Center requiere la instalación de una licencia para habilitar la funcionalidad completa de gestión de datos de aplicaciones. Cuando se implementa Astra Control Center sin una licencia, se muestra un banner en la interfaz de usuario web, con la advertencia de que la funcionalidad del sistema es limitada.
+
+Las siguientes operaciones requieren una licencia válida:
+
+* Gestionar nuevas aplicaciones
+* Creación de Snapshot o backups
+* Configurar una política de protección para programar copias Snapshot o backups
+* Restauración a partir de una copia de Snapshot o un backup
+* Clonado desde una copia de Snapshot o estado actual
+
+
+
+NOTE: Puede añadir un clúster, añadir un bloque y gestionar un back-end de almacenamiento de Astra Data Store sin licencia. Sin embargo, necesita una licencia válida de Astra Control Center para gestionar aplicaciones mediante Astra Data Store como back-end de almacenamiento.
+
+
+
+== Cómo se calcula el consumo de licencias
+
+Al añadir un nuevo clúster a Astra Control Center, no cuenta con licencias consumidas hasta que Astra Control Center gestione al menos una aplicación que se ejecute en el clúster. También puede añadir un back-end de almacenamiento de Astra Data Store a Astra Control Center sin que se vea afectado el consumo de licencias. Esto le permite gestionar un back-end de Astra Data Store desde un sistema Astra Control Center sin licencia.
+
+Cuando comience a gestionar una aplicación en un clúster, las unidades de CPU del clúster se incluyen en el cálculo de consumo de licencias de Astra Control Center.
+
+
+
+== Obtenga más información
+
+* link:../use/update-licenses.html["Actualizar una licencia existente"]
+

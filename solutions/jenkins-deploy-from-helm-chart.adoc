@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: solutions/jenkins-deploy-from-helm-chart.html 
+keywords: helm charts in astra, deploy jenkins, how to deploy apps with astra, bitnami, helm chart, astra control, kubernetes 
+summary: Aprenda a implementar Jenkins desde el gráfico Helm de BitNami. Después de implementar Jenkins en su clúster, puede registrar la aplicación con Astra Control. 
+---
+= Implemente Jenkins a partir de un gráfico Helm
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+Descubra cómo implementar Jenkins desde la https://bitnami.com/stack/jenkins/helm["Gráfico de Helm de BitNami"^]. Después de implementar Jenkins en su clúster, puede registrar la aplicación con Astra Control.
+
+Jenkins es una aplicación validada para Astra Control.
+
+* https://docs.netapp.com/us-en/astra/learn/validated-vs-standard.html["Descubra la diferencia entre una aplicación validada y una aplicación estándar en Astra Control Service"^].
+* https://docs.netapp.com/us-en/astra-control-center/concepts/validated-vs-standard.html["Descubra la diferencia entre una aplicación validada y una aplicación estándar en Astra Control Center"^].
+
+
+Estas instrucciones se aplican tanto al Servicio de control Astra como al Centro de control Astra.
+
+
+NOTE: Las aplicaciones puestas en marcha desde Google Marketplace no se han validado. Algunos usuarios reportan problemas con descubrimiento y/o copia de seguridad con las implementaciones de Google Marketplace de Postgres, MariaDB y MySQL.
+
+
+
+== Requisitos
+
+* Un clúster que se ha agregado a Astra Control.
++
+
+NOTE: En Astra Control Center, puede agregar primero el clúster a Astra Control Center o agregar primero la aplicación.
+
+* Versiones actualizadas de Helm (versión 3.2+) y Kubectl instaladas en una máquina local con el kubeconfig adecuado para el cluster
+
+
+Astra Control no admite actualmente https://plugins.jenkins.io/kubernetes/["Complemento de Kubernetes para Jenkins"^]. Puede ejecutar Jenkins en un clúster de Kubernetes sin el complemento. El complemento proporciona escalabilidad a su clúster Jenkins.
+
+
+
+== Instale Jenkins
+
+Dos notas importantes sobre este proceso:
+
+* Debe implementar la aplicación después de agregar el clúster al servicio de control de Astra, no antes. Astra Control Center aceptará aplicaciones antes o después de que se agregue el clúster a Astra Control Center.
+* Debe desplegar el gráfico Helm en un espacio de nombres distinto del predeterminado.
+
+
+.Pasos
+. Agregue el tipo de gráfico BitNami:
++
+[listing]
+----
+helm repo add bitnami https://charts.bitnami.com/bitnami
+----
+. Cree el `jenkins` Namespace y implemente Jenkins en él con el comando:
++
+[listing]
+----
+helm install <name> bitnami/jenkins –-namespace <namespace> --create-namespace
+–-set global.storageClass=<storage_class_name>
+----
++
+
+NOTE: Si se cambia el tamaño del volumen, utilice las unidades Kibibyte (Ki), Mebibyte (mi) o Gibibyte (Gi).
+
++
+Debe definir la clase de almacenamiento solo en estas situaciones:
+
++
+** Está utilizando Astra Control Service y no desea utilizar la clase de almacenamiento predeterminada.
+** Está utilizando Astra Control Center y todavía no ha importado el clúster a Astra Control Center. O bien, ha importado el clúster pero no desea utilizar la clase de almacenamiento predeterminada.
+
+
+
+
+.Resultado
+De este modo se realiza lo siguiente:
+
+* Crea un espacio de nombres.
+* Establece la clase de almacenamiento correcta.
+
+
+Una vez que las POD estén en línea, puede gestionar la aplicación con Astra Control. Astra Control permite gestionar una aplicación a nivel de espacio de nombres o mediante una etiqueta de timón.

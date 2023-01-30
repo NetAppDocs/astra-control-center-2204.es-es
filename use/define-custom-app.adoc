@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: use/define-custom-app.html 
+keywords: manage app, custom app, kubernetes, astra control, astra 
+summary: Crear una aplicación personalizada le permite agrupar elementos de su clúster de Kubernetes en una única aplicación. 
+---
+= Defina un ejemplo de aplicación personalizada
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Crear una aplicación personalizada le permite agrupar elementos de su clúster de Kubernetes en una única aplicación. Este conjunto de recursos de Kubernetes se basa en un espacio de nombres y una etiqueta.
+
+Una aplicación personalizada le ofrece un control más granular de lo que debe incluirse en una operación de Astra Control, entre las que se incluyen:
+
+* Clonar
+* Snapshot
+* Backup
+* Política de protección
+
+
+En la mayoría de los casos, querrá utilizar las funciones de Astra Control en toda su aplicación. Sin embargo, también puede crear una aplicación personalizada para utilizar estas funciones con las etiquetas que asigne a los objetos de Kubernetes en un espacio de nombres.
+
+
+NOTE: Las aplicaciones personalizadas solo se pueden crear dentro de un espacio de nombres especificado en un único clúster. Astra Control no admite la capacidad de una aplicación personalizada para abarcar varios espacios de nombres o clústeres.
+
+Una etiqueta es una pareja clave/valor que se puede asignar a objetos de Kubernetes para su identificación. Las etiquetas facilitan la ordenación, la organización y la búsqueda de los objetos de Kubernetes. Para obtener más información acerca de las etiquetas de Kubernetes, https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/["Consulte la documentación oficial de Kubernetes"^].
+
+
+WARNING: Las directivas que se solapan para el mismo recurso con nombres diferentes pueden provocar conflictos de datos. Si crea una aplicación personalizada para un recurso, asegúrese de que no se clona ni se realiza un backup en ninguna otra política.
+
+.Lo que necesitará
+* Se ha agregado un clúster a Astra Control
+
+
+.Pasos
+. En la página aplicaciones, seleccione **+ definir**.
++
+La ventana aplicación personalizada muestra los recursos que se incluirán o excluirán de la aplicación personalizada. Esto le ayuda a asegurarse de que está eligiendo los criterios correctos para definir su aplicación personalizada.
+
+. En la ventana emergente, introduzca el nombre de la aplicación, elija el clúster en el menú desplegable **Cluster** y elija el espacio de nombres de la aplicación en el menú desplegable **Namespace**.
+. En la lista desplegable *etiqueta*, seleccione una etiqueta para las aplicaciones y espacio de nombres.
+. Después de definir la aplicación personalizada para una implementación, repita el proceso para otras implementaciones, según sea necesario.
+
+
+Cuando termine de crear las dos aplicaciones personalizadas, puede tratar estos recursos como cualquier otra aplicación de Astra Control. Pueden clonarlas, crear backups y snapshots, y crear una política de protección personalizada para cada grupo de recursos basada en las etiquetas de Kubernetes.
+
+
+
+== Ejemplo: Separar la normativa de protección para diferentes versiones
+
+En este ejemplo, el equipo de devops gestiona una puesta en marcha de versiones canaria. Su grupo tiene tres pods que ejecutan nginx. Dos de los pods están dedicados a la versión estable. El tercer pod es para el lanzamiento canario.
+
+El administrador de Kubernetes del equipo de devops añade la etiqueta `deployment=stable` a los pods de liberación estables. El equipo agrega la etiqueta `deployment=canary` a la cápsula de liberación canaria.
+
+La versión estable del equipo incluye los requisitos de snapshots cada hora y backups diarios. la liberación canaria es más efímera, por lo que quieren crear una Política de Protección a corto plazo menos agresiva para cualquier cosa etiquetada `deployment=canary`.
+
+Para evitar posibles conflictos de datos, el administrador creará dos aplicaciones personalizadas: Una para el lanzamiento "canario" y otra para el lanzamiento "estable". De este modo, los backups, las snapshots y las operaciones de clonado se mantienen independientes para los dos grupos de objetos de Kubernetes.

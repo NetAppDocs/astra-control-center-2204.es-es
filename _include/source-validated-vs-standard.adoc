@@ -1,0 +1,35 @@
+= Aplicaciones validadas
+:allow-uri-read: 
+
+
+Hay dos tipos de aplicaciones que puede llevar a Astra Control: Validado y estándar. Conozca la diferencia entre estas dos categorías y el impacto potencial en sus proyectos y su estrategia.
+
+
+NOTE: De modo que resulta tentador pensar en estas dos categorías como "compatible" y "no admitido". Pero como verá, no existe una aplicación "no compatible" en Astra Control. Puede añadir cualquier aplicación a Astra Control, aunque las aplicaciones validadas tienen más infraestructura creada en torno a sus flujos de trabajo de Astra Control en comparación con las aplicaciones estándar.
+
+
+
+== Aplicaciones validadas
+
+Las aplicaciones validadas de Astra Control incluyen lo siguiente:
+
+* MySQL 8.0.25
+* MariaDB 10.5.9
+* PostgreSQL 11.12
+* Jenkins 2.277.4 LTS y 2.289.1 LTS
+
+
+La lista de aplicaciones validadas representa aplicaciones que Astra Control reconoce. El equipo de Astra Control ha analizado y confirmado que estas aplicaciones se han probado completamente para restaurarlas. Astra Control ejecuta flujos de trabajo personalizados para garantizar la coherencia de las copias Snapshot y las copias de seguridad a nivel de las aplicaciones.
+
+Si se valida una aplicación, el equipo de Astra Control ha identificado e implementado los pasos que se pueden tomar para desactivar la aplicación antes de tomar una instantánea para obtener una instantánea coherente con la aplicación. Por ejemplo, cuando Astra Control realiza una copia de seguridad de una base de datos PostgreSQL, primero realiza una copia de seguridad de la base de datos. Una vez finalizada la copia de seguridad, Astra Control restaura la base de datos a un funcionamiento normal.
+
+Independientemente del tipo de aplicación que utilice con Astra Control, pruebe siempre el flujo de trabajo de backup y restauración usted mismo para garantizar que puede cumplir sus requisitos de recuperación ante desastres.
+
+
+
+== Aplicaciones estándar
+
+Otras aplicaciones, incluidos los programas personalizados, se consideran aplicaciones estándar. Puede añadir y gestionar aplicaciones estándar a través de Astra Control. También puede crear instantáneas y copias de seguridad básicas y coherentes con los fallos de una aplicación estándar. Sin embargo, no se han probado completamente para restaurar la aplicación a su estado original.
+
+
+TIP: Astra Control en sí no es una aplicación estándar; es una "aplicación del sistema". Astra Control no se muestra de forma predeterminada para la gestión. No debe intentar gestionar Astra Control por sí mismo.

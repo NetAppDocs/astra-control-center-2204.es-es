@@ -1,0 +1,151 @@
+---
+sidebar: sidebar 
+permalink: use/execution-hooks.html 
+keywords: execution hook, snapshot, hook, kubernetes, astra control, astra 
+summary: Un enlace de ejecución es una secuencia de comandos personalizada que se puede ejecutar antes o después de una instantánea de una aplicación administrada. 
+---
+= Gestione los enlaces de ejecución de aplicaciones
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Un enlace de ejecución es una secuencia de comandos personalizada que se puede ejecutar antes o después de una instantánea de una aplicación administrada. Por ejemplo, si tiene una aplicación de base de datos, puede utilizar los enlaces de ejecución para pausar todas las transacciones de la base de datos antes de realizar una instantánea y reanudar las transacciones una vez finalizada la instantánea. De este modo se garantiza la creación de instantáneas coherentes con la aplicación.
+
+
+
+== Ganchos de ejecución predeterminados y expresiones regulares
+
+Para algunas aplicaciones, Astra Control incluye los enlaces de ejecución predeterminados, proporcionados por NetApp, que gestionan las operaciones de congelación y descongelación antes y después de las copias Snapshot. Astra Control utiliza expresiones regulares para relacionar la imagen de un contenedor de una aplicación con estas aplicaciones:
+
+* MariaDB
++
+** Expresión regular coincidente: \Bmariadb\b
+
+
+* MySQL
++
+** Expresión regular coincidente: \Bmysql\b
+
+
+* PostgreSQL
++
+** Expresión regular coincidente: \Bpostgresql\b
+
+
+
+
+Si hay algún dato, los enlaces de ejecución predeterminados proporcionados por NetApp para esa aplicación aparecen en la lista de enlaces de ejecución activos y dichos enlaces se ejecutan automáticamente cuando se hacen snapshots de esa aplicación. Si una de sus aplicaciones personalizadas tiene un nombre de imagen similar que se produce para coincidir con una de las expresiones regulares (y no desea utilizar los ganchos de ejecución predeterminados), puede cambiar el nombre de la imagen, o bien, desactive el enlace de ejecución predeterminado para esa aplicación y utilice un gancho personalizado en su lugar.
+
+No puede eliminar ni modificar los enlaces de ejecución predeterminados.
+
+
+
+== Notas importantes sobre los enlaces de ejecución personalizados
+
+Tenga en cuenta lo siguiente al planificar enlaces de ejecución para sus aplicaciones.
+
+* Astra Control requiere que los enlaces de ejecución se escriban en el formato de secuencias de comandos de shell ejecutables.
+* El tamaño del script está limitado a 128 KB.
+* Astra Control utiliza la configuración del enlace de ejecución y cualquier criterio coincidente para determinar qué ganchos son aplicables a una instantánea.
+* Todos los fallos del enlace de ejecución son errores de software; otros enlaces y la instantánea siguen intentándose incluso si falla un gancho. Sin embargo, cuando falla un gancho, se registra un suceso de advertencia en el registro de eventos de la página *Activity*.
+* Para crear, editar o eliminar enlaces de ejecución, debe ser un usuario con permisos de propietario, administrador o miembro.
+* Si un enlace de ejecución tarda más de 25 minutos en ejecutarse, el enlace fallará, creando una entrada de registro de eventos con un código de retorno de "N/A". Se agotará el tiempo de espera de todas las instantáneas afectadas y se marcarán como errores, con una entrada de registro de eventos resultante que tenga en cuenta el tiempo de espera.
+
+
+
+NOTE: Puesto que los enlaces de ejecución a menudo reducen o desactivan por completo la funcionalidad de la aplicación con la que se ejecutan, siempre debe intentar minimizar el tiempo que tardan los enlaces de ejecución personalizados.
+
+Cuando se ejecuta una instantánea, los eventos de enlace de ejecución tienen lugar en el siguiente orden:
+
+. Todos los enlaces de ejecución presnapshot predeterminados que proporcione NetApp se ejecutan en los contenedores adecuados.
+. Todos los enlaces de ejecución de presnapshot personalizados aplicables se ejecutan en los contenedores adecuados. Puede crear y ejecutar tantos enlaces presnapshot personalizados como necesite, pero el orden de ejecución de estos enlaces antes de que la instantánea no esté garantizada ni sea configurable.
+. La copia de Snapshot se realiza.
+. Todos los enlaces de ejecución post-snapshot personalizados aplicables se ejecutan en los contenedores adecuados. Puede crear y ejecutar tantos enlaces post-snapshot personalizados como necesite, pero el orden de ejecución de estos enlaces después de que la instantánea no esté garantizada ni sea configurable.
+. Todos los enlaces de ejecución post-snapshot predeterminados que proporcione NetApp se ejecutan en los contenedores adecuados.
+
+
+
+NOTE: Siempre debe probar sus secuencias de comandos de ejecución de enlace antes de habilitarlas en un entorno de producción. Puede utilizar el comando 'kubectl exec' para probar cómodamente los scripts. Después de habilitar los enlaces de ejecución en un entorno de producción, pruebe las instantáneas resultantes para asegurarse de que son coherentes. Para ello, puede clonar la aplicación en un espacio de nombres temporal, restaurar la instantánea y, a continuación, probar la aplicación.
+
+
+
+== Ver los enlaces de ejecución existentes
+
+Puede ver los enlaces de ejecución predeterminados de una aplicación ya existentes o proporcionados por NetApp.
+
+.Pasos
+. Vaya a *aplicaciones* y seleccione el nombre de una aplicación administrada.
+. Seleccione la ficha *ganchos de ejecución*.
++
+Puede ver todos los enlaces de ejecución habilitados o desactivados en la lista resultante. Puede ver el estado, el origen y el momento en que se ejecuta un gancho (instantánea previa o posterior). Para ver los registros de eventos que rodean los enlaces de ejecución, vaya a la página *actividad* en el área de navegación del lado izquierdo.
+
+
+
+
+
+== Cree un enlace de ejecución personalizado
+
+Puede crear un enlace de ejecución personalizado para una aplicación. Consulte link:execution-hook-examples.html["Ejemplos de gancho de ejecución"^] para ejemplos de gancho. Necesita tener permisos de propietario, administrador o miembro para crear enlaces de ejecución.
+
+
+NOTE: Cuando cree un script de shell personalizado para utilizarlo como un enlace de ejecución, recuerde especificar el shell adecuado al principio del archivo, a menos que esté ejecutando comandos linux o proporcionando la ruta completa a un ejecutable.
+
+.Pasos
+. Seleccione *aplicaciones* y, a continuación, seleccione el nombre de una aplicación administrada.
+. Seleccione la ficha *ganchos de ejecución*.
+. Seleccione *Añadir un nuevo gancho*.
+. En el área *Detalles del gancho*, dependiendo de cuándo se debe ejecutar el gancho, elija *Pre-Snapshot* o *Post-Snapshot*.
+. Introduzca un nombre único para el gancho.
+. (Opcional) Introduzca cualquier argumento para pasar al gancho durante la ejecución, pulsando la tecla Intro después de cada argumento que introduzca para grabar cada uno.
+. En el área *Imágenes de contenedor*, si el gancho debe funcionar con todas las imágenes de contenedor contenidas en la aplicación, active la casilla de verificación *aplicar a todas las imágenes de contenedor*. Si en su lugar el gancho sólo debe actuar en una o más imágenes contenedoras especificadas, introduzca los nombres de imagen contenedora en el campo *nombres de imagen contenedora para que coincidan*.
+. En el área *Script*, siga uno de estos procedimientos:
++
+** Cargue un script personalizado.
++
+... Seleccione la opción *cargar archivo*.
+... Navegue hasta un archivo y cárguelo.
+... Asigne al script un nombre único.
+... (Opcional) Introduzca cualquier nota que los otros administradores deben conocer sobre el script.
+
+
+** Pegar en un script personalizado desde el portapapeles.
++
+... Seleccione la opción *Pegar del portapapeles*.
+... Seleccione el campo de texto y pegue el texto del script en el campo.
+... Asigne al script un nombre único.
+... (Opcional) Introduzca cualquier nota que los otros administradores deben conocer sobre el script.
+
+
+
+
+. Seleccione *Agregar gancho*.
+
+
+
+
+== Desactivar un gancho de ejecución
+
+Puede desactivar un gancho de ejecución si desea impedir temporalmente que se ejecute antes o después de una instantánea de una aplicación. Necesita tener permisos de propietario, administrador o miembro para desactivar los enlaces de ejecución.
+
+.Pasos
+. Seleccione *aplicaciones* y, a continuación, seleccione el nombre de una aplicación administrada.
+. Seleccione la ficha *ganchos de ejecución*.
+. Seleccione el menú Opciones de la columna *acciones* para el gancho que desea desactivar.
+. Seleccione *Desactivar*.
+
+
+
+
+== Eliminar un gancho de ejecución
+
+Puede eliminar un enlace de ejecución por completo si ya no lo necesita. Necesita tener permisos de propietario, administrador o miembro para eliminar los enlaces de ejecución.
+
+.Pasos
+. Seleccione *aplicaciones* y, a continuación, seleccione el nombre de una aplicación administrada.
+. Seleccione la ficha *ganchos de ejecución*.
+. Seleccione el menú Opciones de la columna *acciones* para el gancho que desea eliminar.
+. Seleccione *Eliminar*.
+
