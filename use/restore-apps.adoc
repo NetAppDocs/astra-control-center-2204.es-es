@@ -12,7 +12,7 @@ summary: Astra puede restaurar la configuración de sus aplicaciones y el almace
 
 
 [role="lead"]
-Astra Control puede restaurar su aplicación a partir de una instantánea o una copia de seguridad. La restauración a partir de una snapshot existente será más rápida cuando se restaure la aplicación en el mismo clúster. Puede utilizar la interfaz de usuario de Astra Control o. https://docs.netapp.com/us-en/astra-automation/index.html["La API de control Astra"^] para restaurar aplicaciones.
+Astra Control puede restaurar su aplicación a partir de una instantánea o una copia de seguridad. La restauración a partir de una snapshot existente será más rápida cuando se restaure la aplicación en el mismo clúster. Puede utilizar la interfaz de usuario de Astra Control o. https://docs.netapp.com/us-en/astra-automation-2204/index.html["La API de control Astra"^] para restaurar aplicaciones.
 
 .Acerca de esta tarea
 * Se recomienda tomar una instantánea o realizar una copia de seguridad de la aplicación antes de restaurarla. Esto le permitirá clonar desde la snapshot o backup en el caso de que la restauración no se realice correctamente.

@@ -55,4 +55,4 @@ Los archivos de notificación proporcionan información sobre los derechos de au
 
 == Licencia Astra Control API
 
-https://docs.netapp.com/us-en/astra-automation/media/astra-api-license.pdf[]
+https://docs.netapp.com/us-en/astra-automation-2204/media/astra-api-license.pdf[]

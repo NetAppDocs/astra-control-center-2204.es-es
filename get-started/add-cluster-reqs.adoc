@@ -278,5 +278,5 @@ Ahora que ha comprobado que se cumplen los requisitos previos, está listo link:
 == Obtenga más información
 
 * https://docs.netapp.com/us-en/trident/index.html["Documentación de Trident"^]
-* https://docs.netapp.com/us-en/astra-automation/index.html["Utilice la API Astra Control"^]
+* https://docs.netapp.com/us-en/astra-automation-2204/index.html["Utilice la API Astra Control"^]
 

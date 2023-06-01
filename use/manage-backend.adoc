@@ -13,7 +13,7 @@ summary: Añada almacenamiento para sus aplicaciones Kubernetes en las instalaci
 
 Gestionar los clústeres de almacenamiento en Astra Control como back-end de almacenamiento le permite obtener vínculos entre los volúmenes persistentes (VP) y el back-end de almacenamiento, así como mediciones de almacenamiento adicionales. Puede supervisar la capacidad del almacenamiento y los detalles del estado, incluido el rendimiento si el Centro de control Astra está conectado a Cloud Insights.
 
-Para obtener instrucciones sobre cómo gestionar los back-ends de almacenamiento con la API Astra Control, consulte link:https://docs.netapp.com/us-en/astra-automation/["Información sobre API y automatización de Astra"^].
+Para obtener instrucciones sobre cómo gestionar los back-ends de almacenamiento con la API Astra Control, consulte link:https://docs.netapp.com/us-en/astra-automation-2204/["Información sobre API y automatización de Astra"^].
 
 Es posible completar las siguientes tareas relacionadas con la gestión de un back-end de almacenamiento:
 
@@ -215,5 +215,5 @@ Si Astra Data Store puede utilizar las direcciones IP configuradas durante la im
 
 == Obtenga más información
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Utilice la API Astra Control"^]
+* https://docs.netapp.com/us-en/astra-automation-2204/index.html["Utilice la API Astra Control"^]
 

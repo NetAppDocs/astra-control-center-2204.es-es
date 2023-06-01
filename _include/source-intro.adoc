@@ -69,8 +69,7 @@ Mismas funcionalidades en ambas plataformas, con excepciones en los back-end de 
 
 NetApp ha validado algunas aplicaciones para garantizar la seguridad y la consistencia de las copias Snapshot y los backups.
 
-* https://docs.netapp.com/us-en/astra/learn/validated-vs-standard.html["Descubra la diferencia entre una aplicación validada y una aplicación estándar en Astra Control Service"^].
-* https://docs.netapp.com/us-en/astra-control-center/concepts/validated-vs-standard.html["Descubra la diferencia entre una aplicación validada y una aplicación estándar en Astra Control Center"^].
+* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/validated-vs-standard.html#validated-apps["Descubre la diferencia entre una aplicación validada y una aplicación estándar en Astra Control"^].
 
 
 Independientemente del tipo de aplicación que utilice con Astra Control, siempre debe probar por usted mismo el flujo de trabajo de backup y restauración para garantizar que puede cumplir sus requisitos de recuperación ante desastres.
@@ -161,7 +160,7 @@ Puede añadir aplicaciones al clúster. O bien, si ya tiene algunas aplicaciones
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Documentación de Astra Control Center"^]
 * https://docs.netapp.com/us-en/astra-data-store/index.html["Documentación de Astra Data Store"]
 * https://docs.netapp.com/us-en/trident/index.html["Documentación de Astra Trident"^]
-* https://docs.netapp.com/us-en/astra-automation/index.html["Utilice la API Astra Control"^]
+* https://docs.netapp.com/us-en/astra-automation-2204/index.html["Utilice la API Astra Control"^]
 * https://docs.netapp.com/us-en/cloudinsights/["Documentación de Cloud Insights"^]
 * https://docs.netapp.com/us-en/ontap/index.html["Documentación de ONTAP"^]
 

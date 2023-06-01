@@ -15,8 +15,7 @@ Aprenda a implementar MariaDB desde el https://bitnami.com/stack/mariadb/helm["G
 
 MariaDB es una aplicación validada para Astra.
 
-* https://docs.netapp.com/us-en/astra/learn/validated-vs-standard.html["Descubra la diferencia entre una aplicación validada y una aplicación estándar en Astra Control Service"^].
-* https://docs.netapp.com/us-en/astra-control-center/concepts/validated-vs-standard.html["Descubra la diferencia entre una aplicación validada y una aplicación estándar en Astra Control Center"^].
+* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/validated-vs-standard.html#validated-apps["Descubre la diferencia entre una aplicación validada y una aplicación estándar en Astra Control"^].
 
 
 Estas instrucciones se aplican tanto al Servicio de control Astra como al Centro de control Astra.

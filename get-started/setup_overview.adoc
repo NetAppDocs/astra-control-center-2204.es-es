@@ -24,7 +24,7 @@ Astra Control Center admite y supervisa ONTAP y Astra Data Store como back-end d
 
 == Agregue una licencia de Astra Control Center
 
-Puede añadir una licencia nueva con la interfaz de usuario o. https://docs.netapp.com/us-en/astra-automation/index.html["API"^] Para obtener todas las funciones de Astra Control Center. Sin una licencia, el uso de Astra Control Center se limita a gestionar usuarios y agregar nuevos clústeres.
+Puede añadir una licencia nueva con la interfaz de usuario o. https://docs.netapp.com/us-en/astra-automation-2204/index.html["API"^] Para obtener todas las funciones de Astra Control Center. Sin una licencia, el uso de Astra Control Center se limita a gestionar usuarios y agregar nuevos clústeres.
 
 Para obtener más información sobre cómo se calculan las licencias, consulte link:../concepts/licensing.html["Licencia"].
 
@@ -348,6 +348,6 @@ Ahora que ha iniciado sesión y agregado clústeres a Astra Control Center, est�
 [discrete]
 == Obtenga más información
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Utilice la API Astra Control"^]
+* https://docs.netapp.com/us-en/astra-automation-2204/index.html["Utilice la API Astra Control"^]
 * link:../release-notes/known-issues.html["Problemas conocidos"]
 

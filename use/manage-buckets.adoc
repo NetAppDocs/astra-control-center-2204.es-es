@@ -33,7 +33,7 @@ Un cubo puede estar en uno de estos estados:
 * Removido: El cucharón no está accesible actualmente.
 
 
-Para obtener instrucciones sobre cómo gestionar los cubos con la API Astra Control, consulte link:https://docs.netapp.com/us-en/astra-automation/["Información sobre API y automatización de Astra"^].
+Para obtener instrucciones sobre cómo gestionar los cubos con la API Astra Control, consulte link:https://docs.netapp.com/us-en/astra-automation-2204/["Información sobre API y automatización de Astra"^].
 
 Puede realizar estas tareas relacionadas con la gestión de bloques:
 
@@ -97,7 +97,7 @@ TIP: El primer conjunto de credenciales que agregue a Astra Control siempre est�
 
 NOTE: Si elimina las credenciales de bloque activas, consulte https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Deleting_active_S3_bucket_credentials_leads_to_spurious_500_errors_reported_in_the_UI["solución de problemas de eliminación de credenciales del bloque"].
 
-Para obtener instrucciones sobre cómo eliminar credenciales de S3 mediante la API Astra Control, consulte link:https://docs.netapp.com/us-en/astra-automation/["Información sobre API y automatización de Astra"^].
+Para obtener instrucciones sobre cómo eliminar credenciales de S3 mediante la API Astra Control, consulte link:https://docs.netapp.com/us-en/astra-automation-2204/["Información sobre API y automatización de Astra"^].
 
 
 
@@ -130,5 +130,5 @@ NOTE: Astra Control garantiza en primer lugar que no existan normativas de progr
 
 == Obtenga más información
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Utilice la API Astra Control"^]
+* https://docs.netapp.com/us-en/astra-automation-2204/index.html["Utilice la API Astra Control"^]
 

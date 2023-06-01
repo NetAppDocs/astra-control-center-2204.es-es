@@ -65,5 +65,5 @@ link:../get-started/install_overview.html["Instalar Astra Control Center"].
 
 == Obtenga más información
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Utilice la API Astra Control"^]
+* https://docs.netapp.com/us-en/astra-automation-2204/index.html["Utilice la API Astra Control"^]
 

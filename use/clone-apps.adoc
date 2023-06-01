@@ -14,7 +14,7 @@ summary: Clone una aplicación existente para crear una aplicación duplicada en
 [role="lead"]
 Clone una aplicación existente para crear una aplicación duplicada en el mismo clúster de Kubernetes o en otro clúster. Cuando Astra Control Center clona una aplicación, crea un clon de la configuración de la aplicación y del almacenamiento persistente.
 
-El clonado puede ayudarle si necesita mover aplicaciones y almacenamiento de un clúster de Kubernetes a otro. Por ejemplo, es posible que desee mover cargas de trabajo mediante una canalización de CI/CD y entre espacios de nombres Kubernetes. Puede utilizar la interfaz de usuario de Astra o. https://docs.netapp.com/us-en/astra-automation/index.html["La API de control Astra"^] para clonar y migrar aplicaciones.
+El clonado puede ayudarle si necesita mover aplicaciones y almacenamiento de un clúster de Kubernetes a otro. Por ejemplo, es posible que desee mover cargas de trabajo mediante una canalización de CI/CD y entre espacios de nombres Kubernetes. Puede utilizar la interfaz de usuario de Astra o. https://docs.netapp.com/us-en/astra-automation-2204/index.html["La API de control Astra"^] para clonar y migrar aplicaciones.
 
 .Lo que necesitará
 Para clonar aplicaciones en un clúster diferente, necesita un bloque predeterminado. Cuando se agrega su primer bloque, se convierte en el bloque predeterminado.
