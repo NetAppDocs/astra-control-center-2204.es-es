@@ -1232,7 +1232,6 @@
   <block id="c3314925ef2c97256c3237a450d6f4f5" category="list-text">Back-ends de almacenamiento de Trident con ONTAP 9.5 y versiones posteriores</block>
   <block id="5b4b1a973a4751fbfc2fda3bd9bac412" category="list-text">Astra Data Store back-ends</block>
   <block id="51269e2584d26b04961877ec77db6da7" category="paragraph">En un entorno conectado a la nube, Astra Control Center utiliza Cloud Insights para proporcionar supervisión y telemetría avanzadas. Ante la ausencia de una conexión con Cloud Insights, la telemetría y la supervisión limitadas (7 días de métricas) están disponibles en Astra Control Center y también se exportan a herramientas de supervisión nativas de Kubernetes (como Prometheus y Grafana) mediante puntos finales de métricas abiertas.</block>
-  <block id="ea2708b459fc0cad6936ec216bd9405e" category="paragraph">Astra Control Center está totalmente integrado en el ecosistema de AutoSupport y Active IQ para proporcionar a los usuarios y el soporte de NetApp información sobre solución de problemas y uso.</block>
   <block id="26849905a5aa23f71bc18ee28e352604" category="paragraph">Puede probar Astra Control Center con una licencia de evaluación de 90 días. La versión de evaluación se admite a través de opciones de correo electrónico y comunidad (canal Slack). Además, tendrá acceso a los artículos de la base de conocimientos y a la documentación desde la consola de soporte del producto.</block>
   <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link">requisitos</block>
   <block id="e63cc3795b9216d59b085bd3111a248d" category="paragraph">Para instalar y utilizar Astra Control Center, tendrá que estar seguro<block ref="bdde32b2c988689d803729c06660acb4" category="inline-link-rx"></block>.</block>
@@ -2184,7 +2183,6 @@
   <block id="35f3a2f7a0f2c01d03afedb95ece66ab" category="inline-link">Carga de archivos autenticados de NetApp (se requiere inicio de sesión)</block>
   <block id="1c2989d4329c8aeec5e01506816fb04e" category="list-text">Uso<block ref="4b0bc63f683ccbf4dcf0ba2a6a1b561f" category="inline-link-rx"></block>.</block>
   <block id="94bcffc8ff8a109a8267202d2aaa5526" category="list-text">Adjunte el paquete al caso directamente en NSS.</block>
-  <block id="4345f2150d39e38a6a11ee7ee57bed28" category="list-text">Utilice Active IQ de NetApp.</block>
   <block id="3e7ce18250825ebe097f3b6178f9d04a" category="summary">Aprenda a desplegar MariaDB desde el gráfico BitNami Helm. Después de implementar MariaDB en su clúster, puede gestionar la aplicación con Astra Control.</block>
   <block id="8af1c34244700f810760890ac853ae2b" category="summary">Aprenda a implementar Jenkins desde el gráfico Helm de BitNami. Después de implementar Jenkins en su clúster, puede registrar la aplicación con Astra Control.</block>
   <block id="46e99d499ce6f7990ef9f220c50ce56d" category="summary">Aprenda a implementar MySQL desde la tabla de Helm de BitNami. Después de poner en marcha MySQL en su clúster de Kubernetes, puede gestionar la aplicación con Astra Control.</block>
@@ -2274,4 +2272,6 @@
   <block id="802adae5487ced22b70180d969f7750c" category="list-text">Si el tipo de instancia no coincide con los requisitos mínimos de recursos de Astra para los nodos maestros y trabajadores, cambie el tipo de instancia en Azure para cumplir los requisitos de Astra.  Consulte <block ref="a41c664e3d2520e4c4deb907d0286272" category="inline-link-macro-rx"></block>.</block>
   <block id="4d7203e3cc3e9782de01bf1c152c7952" category="list-text"><block ref="bb1d5de9fc6b24a8ee91128103dfdee9" category="inline-link-macro-rx"></block>.</block>
   <block id="f04289013cb8b30466cb952e21a82c10" category="sidebar">Documentos de Astra Control Center 22,04</block>
+  <block id="a9cf730f8ab04a5b52f1d19c74c1483c" category="paragraph">Astra Control Center está totalmente integrado en el ecosistema del asesor digital de AutoSupport y Active IQ (también conocido como asesor digital) para proporcionar a los usuarios y al servicio de soporte de NetApp información sobre solución de problemas e uso.</block>
+  <block id="3cf9bc07c0ae31018d3336b8f32de6c8" category="list-text">Utilice el asesor digital.</block>
 </blocks>

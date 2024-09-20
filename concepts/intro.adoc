@@ -131,7 +131,7 @@ Astra Control Center es compatible con clústeres de Kubernetes OpenShift con:
 
 En un entorno conectado a la nube, Astra Control Center utiliza Cloud Insights para proporcionar supervisión y telemetría avanzadas. Ante la ausencia de una conexión con Cloud Insights, la telemetría y la supervisión limitadas (7 días de métricas) están disponibles en Astra Control Center y también se exportan a herramientas de supervisión nativas de Kubernetes (como Prometheus y Grafana) mediante puntos finales de métricas abiertas.
 
-Astra Control Center está totalmente integrado en el ecosistema de AutoSupport y Active IQ para proporcionar a los usuarios y el soporte de NetApp información sobre solución de problemas y uso.
+Astra Control Center está totalmente integrado en el ecosistema del asesor digital de AutoSupport y Active IQ (también conocido como asesor digital) para proporcionar a los usuarios y al servicio de soporte de NetApp información sobre solución de problemas e uso.
 
 Puede probar Astra Control Center con una licencia de evaluación de 90 días. La versión de evaluación se admite a través de opciones de correo electrónico y comunidad (canal Slack). Además, tendrá acceso a los artículos de la base de conocimientos y a la documentación desde la consola de soporte del producto.
 
